@@ -7,8 +7,6 @@ Réserviste dans l'Armée de l'air · Passionné d'aéronautique
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MATLAB](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
@@ -24,7 +22,7 @@ Réserviste dans l'Armée de l'air · Passionné d'aéronautique
 
 | Domaine | Détail |
 |---|---|
-| Programmation & calcul | Python, MATLAB |
+| Programmation & calcul | Python, MATLAB, C |
 | Domaines d'études | Électronique, génie électrique, automatique |
 | Langues | Français (natif), Anglais (B2) |
 
@@ -55,7 +53,7 @@ Stages, projets et opportunités professionnelles dans l'**électronique, l'auto
 ## 📬 Contact
 
 - 📧 [boureauv6@gmail.com](mailto:boureauv6@gmail.com)
-- 💼 LinkedIn : *(ajoute ton lien ici)*
+- 💼 LinkedIn : *www.linkedin.com/in/victor-boureau-106652436*
 
 ---
 
