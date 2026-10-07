@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio de Victor Boureau, élève-ingénieur 3EA à Toulouse INP - ENSEEIHT.">
+<title>Victor Boureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Un style simple et personnel : peu d'effets, beaucoup d'espace et une hiérarchie lisible. */
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --fg: #20242a;
+  --muted: #69707a;
+  --line: #deded9;
+  --accent: #315c7d;
+  --accent-text: #315c7d;
+  --font-display: "Arial", "Helvetica Neue", sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17191c;
+    --surface: #202328;
+    --fg: #eeeeeb;
+    --muted: #a5a9af;
+    --line: #353940;
+    --accent: #7da4c4;
+    --accent-text: #8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17191c;
+  --surface: #202328;
+  --fg: #eeeeeb;
+  --muted: #a5a9af;
+  --line: #353940;
+  --accent: #7da4c4;
+  --accent-text: #8fb0ff;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+a { color: var(--accent-text); text-underline-offset: 0.2em; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.wrap {
+  max-width: 920px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  padding-block: 0 3rem;
+}
+
+/* En-tête */
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  text-decoration: none;
+}
+.tabs { display: flex; flex-wrap: wrap; list-style: none; padding: 0; gap: 0 0.25rem; }
+.tabs a {
+  display: block;
+  padding: 0.7rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  text-decoration: none;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+}
+.tabs a:hover { color: var(--fg); }
+.tabs a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--accent); }
+
+.panel { padding-block: clamp(2rem, 6vw, 4rem) 0; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-text);
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.7rem, 7vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  max-width: 16em;
+}
+h1 .hit { color: var(--accent); }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.35; }
+.lede { font-size: 1.0625rem; max-width: 62ch; }
+.muted { color: var(--muted); }
+
+/* Accueil */
+.hero { display: flex; flex-direction: column; gap: 1.75rem; margin-top: 1rem; }
+.hero .copy { display: flex; flex-direction: column; gap: 1rem; }
+
+.glance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.glance > div { min-width: 0; }
+.glance dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.glance dd { margin-top: 0.2rem; font-size: 1rem; }
+
+/* Chronologies */
+.tl { list-style: none; padding: 0; margin-top: 2rem; border-top: 1.5px solid var(--fg); }
+.tl > li {
+  display: grid;
+  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
+  gap: 0.5rem 2rem;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.when {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  padding-top: 0.2rem;
+}
+.what { display: flex; flex-direction: column; gap: 0.35rem; max-width: 62ch; }
+.what .where { color: var(--muted); font-size: 0.95rem; }
+.what ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+.what li { margin-top: 0.15rem; }
+.now {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: 0.15em;
+  color: var(--bg);
+  background: var(--accent-text);
+}
+
+.block { margin-top: clamp(2.5rem, 6vw, 3.5rem); display: flex; flex-direction: column; gap: 1rem; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem 2rem; border-top: 1.5px solid var(--fg); padding-top: 1rem; }
+.facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.facts dd { margin-top: 0.15rem; font-size: 1.05rem; }
+
+/* Projets */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: 1rem; margin-top: 2rem; }
+.card { border: 1.5px solid var(--fg); background: var(--surface); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.9rem; min-width: 0; }
+.card.empty { border: 1.5px dashed var(--line); background: transparent; }
+.card .tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.card h3 { font-size: 1.25rem; }
+.card.empty h3 { color: var(--muted); }
+.card dl { display: flex; flex-direction: column; gap: 0.6rem; }
+.card dt { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.card dd { font-size: 0.95rem; overflow-wrap: anywhere; }
+.card.empty dd { color: var(--line); }
+.note { margin-top: 1.5rem; font-size: 0.95rem; max-width: 62ch; }
+
+/* Contact */
+.reach { margin-top: 2rem; border-top: 1.5px solid var(--fg); max-width: 40rem; }
+.reach > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.reach dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.reach dd { min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+.reach code, .reach a.long {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+  overflow-wrap: anywhere;
+}
+.reach code { user-select: all; }
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--fg);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn:hover { background: var(--fg); color: var(--bg); }
+.btn.primary { background: var(--accent-text); border-color: var(--accent-text); color: var(--bg); }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.small { padding: 0.35rem 0.7rem; font-size: 0.7rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+.foot {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 620px) {
+  .tl > li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  .reach > div { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#accueil">Victor Boureau</a>
+    <nav aria-label="Navigation principale">
+      <ul class="tabs">
+        <li><a href="#accueil" data-tab="accueil">Accueil</a></li>
+        <li><a href="#projets" data-tab="projets">Projets</a></li>
+        <li><a href="#formation" data-tab="formation">Formation</a></li>
+        <li><a href="#experience" data-tab="experience">Expérience</a></li>
+        <li><a href="#contact" data-tab="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ACCUEIL -->
+    <section class="panel" id="p-accueil" data-panel="accueil">
+      <div class="hero">
+        <p class="eyebrow">Étudiant en 3EA · Toulouse</p>
+        <h1>Bonjour, moi c'est Victor.</h1>
+        <div class="copy lede">
+          <p>Je suis étudiant en cycle ingénieur à l'ENSEEIHT, en Électronique, Génie Électrique et Automatique. J'aime comprendre comment les systèmes fonctionnent, les mettre à l'épreuve et trouver des solutions simples aux problèmes techniques.</p>
+          <p>Mon parcours est un peu varié : prépa, lycée militaire, réserve dans l'Armée de l'air et plusieurs jobs d'été. Ces expériences m'ont surtout appris à être sérieux dans mon travail, à m'adapter et à garder la tête froide quand le rythme s'accélère.</p>
+          <p>Je cherche actuellement des stages en électronique, automatique ou systèmes embarqués, notamment dans le domaine de l'aéronautique.</p>
+        </div>
+
+        <dl class="glance">
+          <div><dt>Filière</dt><dd>3EA</dd></div>
+          <div><dt>École</dt><dd>Toulouse INP · ENSEEIHT</dd></div>
+          <div><dt>Engagement</dt><dd>Réserviste, Armée de l'air</dd></div>
+          <div><dt>Outils</dt><dd>Python · MATLAB · C</dd></div>
+        </dl>
+
+        <div class="actions" style="margin-top: 0;">
+          <a class="btn primary" href="#projets">Voir les projets</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="panel" id="p-projets" data-panel="projets" hidden>
+      <p class="eyebrow">Réalisations</p>
+      <h2>Projets</h2>
+      <p class="lede muted" style="margin-top: 1rem;">Je vais ajouter ici mes projets au fur et à mesure. L'idée est de montrer concrètement ce que j'ai fait, avec quels outils et ce que j'en ai retenu.</p>
+      <div class="grid" id="projects-grid"></div>
+      <p class="note muted" id="projects-note"></p>
+    </section>
+
+    <!-- FORMATION -->
+    <section class="panel" id="p-formation" data-panel="formation" hidden>
+      <p class="eyebrow">Parcours académique</p>
+      <h2>Formation</h2>
+      <ol class="tl">
+        <li>
+          <div class="when">Sept. 2026 à aujourd'hui</div>
+          <div class="what">
+            <h3>Cycle ingénieur, filière 3EA <span class="now">En cours</span></h3>
+            <p class="where">Toulouse INP · ENSEEIHT</p>
+            <p>Électronique, Génie Électrique et Automatique.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Sept. 2024 à juil. 2026</div>
+          <div class="what">
+            <h3>Classe préparatoire PSI, deuxième année puis redoublement</h3>
+            <p class="where">École des Pupilles de l'Air, Montbonnot-Saint-Martin</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Sept. 2023 à juil. 2024</div>
+          <div class="what">
+            <h3>Classe préparatoire, première année (redoublement)</h3>
+            <p class="where">Lycée Gustave Eiffel, Dijon</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">Sept. 2022 à juil. 2023</div>
+          <div class="what">
+            <h3>Classe préparatoire aux grandes écoles, première année</h3>
+            <p class="where">École des Pupilles de l'Air, Montbonnot-Saint-Martin</p>
+            <ul><li>Internat : esprit d'équipe et vie en collectivité</li></ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Juil. 2022</div>
+          <div class="what">
+            <h3>Baccalauréat, mention bien</h3>
+            <p class="where">Lycée Joseph Desfontaines, Melle</p>
+            <ul><li>Spécialités mathématiques et physique-chimie</li></ul>
+          </div>
+        </li>
+      </ol>
+
+      <div class="block">
+        <h2>Compétences</h2>
+        <dl class="facts">
+          <div><dt>Programmation et calcul</dt><dd>Python, MATLAB, C</dd></div>
+          <div><dt>Langues</dt><dd>Français, anglais (niveau B2)</dd></div>
+          <div><dt>Qualités</dt><dd>Adaptation, autonomie, rigueur</dd></div>
+          <div><dt>Mobilité</dt><dd>Permis B</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="panel" id="p-experience" data-panel="experience" hidden>
+      <p class="eyebrow">Parcours professionnel</p>
+      <h2>Expérience</h2>
+      <ol class="tl">
+        <li>
+          <div class="when">Été 2024</div>
+          <div class="what">
+            <h3>Agent de production et mise en rayon</h3>
+            <p class="where">Laiterie et grande distribution, par intérim</p>
+            <ul>
+              <li>Agent de production dans une laiterie</li>
+              <li>Mise en rayon en grande distribution</li>
+              <li>Adaptation rapide à chaque poste, rythme de travail soutenu</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Été 2023</div>
+          <div class="what">
+            <h3>Réserviste dans l'Armée de l'air</h3>
+            <p class="where">Base aérienne de Cognac</p>
+            <ul><li>Rigueur, gestion du stress, travail en équipe en condition opérationnelle</li></ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Été 2022</div>
+          <div class="what">
+            <h3>Formation de réserviste opérationnel</h3>
+            <p class="where">Base aérienne de Cognac</p>
+            <ul><li>Développement de la rigueur militaire</li></ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">Été 2021</div>
+          <div class="what">
+            <h3>Guide batelier</h3>
+            <p class="where">La Trigale, Coulon</p>
+            <ul><li>Pédagogie, contact avec la clientèle, endurance</li></ul>
+          </div>
+        </li>
+      </ol>
+
+      <div class="block">
+        <h2>En dehors des études</h2>
+        <p class="lede">Quand je ne suis pas en cours : aéronautique, course à pied, pêche, bricolage… et un peu de sciences par curiosité.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="panel" id="p-contact" data-panel="contact" hidden>
+      <p class="eyebrow">Toulouse</p>
+      <h2>Contact</h2>
+      <p class="lede muted" style="margin-top: 1rem;">Pour un stage, une question ou simplement pour échanger, vous pouvez me contacter ici.</p>
+      <dl class="reach">
+        <div>
+          <dt>E-mail</dt>
+          <dd>
+            <code id="mail-text">boureauv6@gmail.com</code>
+            <button class="btn small" type="button" id="copy-mail">Copier</button>
+          </dd>
+        </div>
+        <div>
+          <dt>LinkedIn</dt>
+          <dd><a class="long" href="https://www.linkedin.com/in/victor-boureau-106652436" target="_blank" rel="noopener noreferrer">linkedin.com/in/victor-boureau-106652436</a></dd>
+        </div>
+      </dl>
+      <div class="actions">
+        <a class="btn primary" href="mailto:boureauv6@gmail.com">Écrire un e-mail</a>
+        <a class="btn" href="https://www.linkedin.com/in/victor-boureau-106652436" target="_blank" rel="noopener noreferrer">Voir mon LinkedIn</a>
+      </div>
+      <p class="note muted" id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Victor Boureau</span>
+    <span>Toulouse INP · ENSEEIHT · 3EA</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var TABS = ['accueil', 'projets', 'formation', 'experience', 'contact'];
+
+  // Ajouter un projet : une entrée dans ce tableau suffit.
+  // { titre: '', contexte: '', role: '', outils: '', resultat: '' }
+  var PROJECTS = [];
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function renderProjects() {
+    var grid = document.getElementById('projects-grid');
+    var note = document.getElementById('projects-note');
+    var html = '';
+    if (PROJECTS.length) {
+      PROJECTS.forEach(function (p) {
+        html += '<article class="card"><span class="tag">Projet</span><h3>' + esc(p.titre) + '</h3><dl>' +
+          '<div><dt>Contexte</dt><dd>' + esc(p.contexte) + '</dd></div>' +
+          '<div><dt>Mon rôle</dt><dd>' + esc(p.role) + '</dd></div>' +
+          '<div><dt>Outils</dt><dd>' + esc(p.outils) + '</dd></div>' +
+          '<div><dt>Résultat</dt><dd>' + esc(p.resultat) + '</dd></div></dl></article>';
+      });
+      note.textContent = '';
+    } else {
+      for (var i = 0; i < 3; i++) {
+        html += '<article class="card empty" aria-label="Emplacement de projet libre"><span class="tag">Emplacement libre</span>' +
+          '<h3>Projet à venir</h3><dl>' +
+          '<div><dt>Contexte</dt><dd>&mdash;</dd></div>' +
+          '<div><dt>Mon rôle</dt><dd>&mdash;</dd></div>' +
+          '<div><dt>Outils</dt><dd>&mdash;</dd></div>' +
+          '<div><dt>Résultat</dt><dd>&mdash;</dd></div></dl></article>';
+      }
+      note.textContent = 'Ces emplacements se rempliront avec mes travaux d\'automatique, d\'électronique et de simulation.';
+    }
+    grid.innerHTML = html;
+  }
+
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[data-panel]'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
+  var first = true;
+
+  function show() {
+    var h = (location.hash || '').replace('#', '');
+    if (TABS.indexOf(h) < 0) h = 'accueil';
+    panels.forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== h; });
+    links.forEach(function (a) {
+      if (a.getAttribute('data-tab') === h) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    if (!first) window.scrollTo(0, 0);
+    first = false;
+  }
+
+  var copyBtn = document.getElementById('copy-mail');
+  var status = document.getElementById('copy-status');
+  function selectMail() {
+    var node = document.getElementById('mail-text');
+    var range = document.createRange();
+    range.selectNodeContents(node);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+  copyBtn.addEventListener('click', function () {
+    var text = document.getElementById('mail-text').textContent;
+    function ok() { status.textContent = 'Adresse copiée.'; }
+    function fallback() { selectMail(); status.textContent = 'Adresse sélectionnée : copiez-la avec votre clavier.'; }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+
+  renderProjects();
+  window.addEventListener('hashchange', show);
+  show();
+})();
+</script>
+</body>
+</html>
