@@ -5,7 +5,7 @@ Réserviste dans l'Armée de l'air, passionné d'aéronautique.
 
 Je conçois des systèmes qui mesurent, décident et agissent. Je cherche des stages en électronique, automatique et systèmes embarqués.
 
-🌐 **Portfolio** : [victor-boureau.github.io]([https://victor-boureau.github.io/myportfolio])
+🌐 **Portfolio** : [victor-boureau.github.io](https://victor-boureau.github.io/myportfolio)
 💼 **LinkedIn** : [victor-boureau](https://www.linkedin.com/in/victor-boureau-106652436)
 📧 **Contact** : [boureauv6@gmail.com](mailto:boureauv6@gmail.com)
 
