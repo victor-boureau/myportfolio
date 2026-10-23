@@ -600,13 +600,250 @@ h3 { font-size: 1.18rem; }
     </section>
 
     <!-- MOBILITES -->
-<section class="panel reveal" id="p-mobilites" data-panel="mobilites" hidden>
-  <p class="eyebrow" data-i18n="mobilityEyebrow">Ouverture</p>
-  <h2 data-i18n="mobilityTitle">Mobilités</h2>
-  <div class="block">
-    <p class="lede" data-i18n="mobilityText">Je peux compléter cette rubrique avec mes mobilités géographiques, séjours à l'étranger ou projets de mobilité dès que j'aurai ces éléments à présenter.</p>
+<!-- SECTION MOBILITÉS -->
+<section id="mobilites" class="mobilites-section">
+
+  <div class="mobilites-header">
+    <span class="section-label">OUVERTURE SUR LE MONDE</span>
+    <h2>Mobilités</h2>
+    <p>
+      Une expérience à l'étranger, pour apprendre et découvrir.
+    </p>
   </div>
+
+  <div class="mobilites-grid">
+
+    <!-- CARTE 1 : OÙ PARTIR -->
+    <article class="mobilite-card">
+      <div class="mobilite-icon">🌍</div>
+      <span class="card-number">01</span>
+      <h3>Où partir ?</h3>
+      <p>
+        Je n'ai pas encore de destination précise en tête.
+        Je suis ouvert à différents pays, avec une préférence
+        pour les environnements anglophones, afin de pratiquer
+        l'anglais au quotidien.
+      </p>
+      <div class="card-tags">
+        <span>Anglais</span>
+        <span>International</span>
+      </div>
+    </article>
+
+    <!-- CARTE 2 : POURQUOI PARTIR -->
+    <article class="mobilite-card">
+      <div class="mobilite-icon">✈️</div>
+      <span class="card-number">02</span>
+      <h3>Pourquoi partir ?</h3>
+      <p>
+        Approfondir mon anglais, découvrir une nouvelle culture
+        et de nouveaux paysages, mais aussi m'ouvrir à d'autres
+        façons de vivre et de travailler.
+      </p>
+      <div class="card-tags">
+        <span>Culture</span>
+        <span>Découverte</span>
+      </div>
+    </article>
+
+    <!-- CARTE 3 : COMMENT PARTIR -->
+    <article class="mobilite-card">
+      <div class="mobilite-icon">🎓</div>
+      <span class="card-number">03</span>
+      <h3>Comment partir ?</h3>
+      <p>
+        Un semestre d'échange ou un double diplôme à l'étranger
+        serait l'occasion de poursuivre ma formation dans un
+        nouvel environnement académique.
+      </p>
+      <div class="card-tags">
+        <span>Échange</span>
+        <span>Double diplôme</span>
+      </div>
+    </article>
+
+    <!-- CARTE 4 : ET APRÈS -->
+    <article class="mobilite-card">
+      <div class="mobilite-icon">🚀</div>
+      <span class="card-number">04</span>
+      <h3>Et après ?</h3>
+      <p>
+        J'aimerais aussi explorer les possibilités de stage
+        à l'international, notamment dans les secteurs de
+        l'aéronautique et du spatial.
+      </p>
+      <div class="card-tags">
+        <span>Aéronautique</span>
+        <span>Spatial</span>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="mobilites-footer">
+    Des destinations et des opportunités à explorer au fil de mon parcours.
+  </p>
+
 </section>
+
+
+<!-- STYLE CSS -->
+<style>
+/* SECTION */
+.mobilites-section {
+  padding: 80px 6%;
+  color: #f1f5f9;
+  background: #0b1120;
+  font-family: inherit;
+}
+
+/* EN-TÊTE */
+.mobilites-header {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.mobilites-header h2 {
+  margin: 0 0 15px;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+}
+
+.mobilites-header p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* GRILLE DES CARTES */
+.mobilites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* CARTE */
+.mobilite-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  background: #111c30;
+  border: 1px solid #26344b;
+  border-radius: 18px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+/* EFFET AU SURVOL */
+.mobilite-card:hover {
+  transform: translateY(-7px);
+  border-color: #60a5fa;
+  background: #16243b;
+}
+
+/* NUMÉRO */
+.card-number {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ICÔNE */
+.mobilite-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 25px;
+  background: #1e3352;
+  border-radius: 14px;
+  font-size: 1.6rem;
+}
+
+/* TITRES ET TEXTES */
+.mobilite-card h3 {
+  margin: 0 0 14px;
+  color: #f8fafc;
+  font-size: 1.35rem;
+}
+
+.mobilite-card p {
+  margin: 0;
+  color: #a9b7ca;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* PETITES ÉTIQUETTES */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.card-tags span {
+  padding: 6px 11px;
+  color: #93c5fd;
+  background: #1e3352;
+  border-radius: 30px;
+  font-size: 0.75rem;
+}
+
+/* TEXTE FINAL */
+.mobilites-footer {
+  max-width: 1100px;
+  margin: 35px auto 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* RESPONSIVE : TABLETTE ET MOBILE */
+@media (max-width: 700px) {
+  .mobilites-section {
+    padding: 55px 5%;
+  }
+
+  .mobilites-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mobilite-card {
+    padding: 25px;
+  }
+}
+
+/* ACCESSIBILITÉ : RÉDUIRE LES ANIMATIONS */
+@media (prefers-reduced-motion: reduce) {
+  .mobilite-card {
+    transition: none;
+  }
+
+  .mobilite-card:hover {
+    transform: none;
+  }
+}
+</style>
     <!-- CARRIERE -->
     <section class="panel reveal" id="p-carriere" data-panel="carriere" hidden>
       <p class="eyebrow" data-i18n="careerEyebrow">Parcours professionnel</p>
