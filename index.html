@@ -731,8 +731,19 @@ h3 { font-size: 1.18rem; }
         <a class="btn" href="https://www.linkedin.com/in/victor-boureau-106652436" target="_blank" rel="noopener noreferrer">Voir mon LinkedIn</a>
       </div>
       <div class="actions">
-        <a class="btn primary" href="cv-victor-boureau-fr.pdf" download>Télécharger mon CV</a>
-        <a class="btn" href="cv-victor-boureau-en.pdf" download>Download my CV (English)</a>
+        <a class="btn primary"
+   href="cv-victor-boureau-fr.pdf"
+   download
+   data-i18n="cvFrenchButton">
+  Télécharger mon CV (français)
+</a>
+
+<a class="btn"
+   href="cv-victor-boureau-en.pdf"
+   download
+   data-i18n="cvEnglishButton">
+  Télécharger mon CV (anglais)
+</a>
       </div>
       <p class="note muted" id="copy-status" role="status" aria-live="polite"></p>
     </section>
@@ -764,12 +775,22 @@ h3 { font-size: 1.18rem; }
     var html = '';
     if (PROJECTS.length) {
       PROJECTS.forEach(function (p) {
-        html += '<article class="card"><span class="tag">Projet</span><h3>' + esc(p.titre) + '</h3><dl>' +
-          '<div><dt>Contexte</dt><dd>' + esc(p.contexte) + '</dd></div>' +
-          '<div><dt>Mon rôle</dt><dd>' + esc(p.role) + '</dd></div>' +
-          '<div><dt>Outils</dt><dd>' + esc(p.outils) + '</dd></div>' +
-          '<div><dt>Résultat</dt><dd>' + esc(p.resultat) + '</dd></div></dl></article>';
-      });
+  var en = language === 'en';
+
+  html += '<article class="card">' +
+    '<span class="tag">' + (en ? 'Project' : 'Projet') + '</span>' +
+    '<h3>' + esc(p.titre) + '</h3>' +
+    '<dl>' +
+    '<div><dt>' + (en ? 'Context' : 'Contexte') +
+    '</dt><dd>' + esc(p.contexte) + '</dd></div>' +
+    '<div><dt>' + (en ? 'My role' : 'Mon rôle') +
+    '</dt><dd>' + esc(p.role) + '</dd></div>' +
+    '<div><dt>' + (en ? 'Tools' : 'Outils') +
+    '</dt><dd>' + esc(p.outils) + '</dd></div>' +
+    '<div><dt>' + (en ? 'Outcome' : 'Résultat') +
+    '</dt><dd>' + esc(p.resultat) + '</dd></div>' +
+    '</dl></article>';
+});
       note.textContent = '';
     } else {
       for (var i = 0; i < 3; i++) {
@@ -818,13 +839,25 @@ civicCroixText: ['Préparation et distribution de denrés alimentaires à des sa
     projectsEyebrow: ['Réalisations','Projects'], projectsTitle: ['Projets','Projects'], projectsIntro: ['Je vais ajouter ici mes projets au fur et à mesure. L’idée est de montrer concrètement ce que j’ai fait, avec quels outils et ce que j’en ai retenu.','I’ll add projects here as I go, showing what I worked on, which tools I used and what I learned.'],
     homeEyebrow: ['Étudiant en 3EA · Toulouse','Engineering student · Toulouse'], homeTitle: ['Bonjour, moi c’est Victor.','Hi, I’m Victor.'], homeP1: ['Je suis étudiant en cycle ingénieur à l’ENSEEIHT, en Électronique, Génie Électrique et Automatique. J’aime comprendre comment les systèmes fonctionnent, les mettre à l’épreuve et trouver des solutions simples aux problèmes techniques.','I’m an engineering student at ENSEEIHT, studying Electronics, Electrical Engineering and Automation. I enjoy understanding how systems work, testing them and finding straightforward solutions to technical problems.'], homeP2: ['Mon parcours est un peu varié : prépa, lycée militaire, réserve dans l’Armée de l’air et plusieurs jobs d’été. Ces expériences m’ont surtout appris à être sérieux dans mon travail, à m’adapter et à garder la tête froide quand le rythme s’accélère.','My path has been varied: preparatory classes, a military high school, Air Force reserve service and several summer jobs. These experiences taught me to take my work seriously, adapt and stay calm when things get busy.'],
     projectsButton: ['Voir les projets','View projects'], contactButton: ['Me contacter','Contact me'], contactIntro: ['Pour un stage, une question ou simplement pour échanger, vous pouvez me contacter ici.','For an internship, a question or just to get in touch, you can reach me here.'], copyButton: ['Copier','Copy'], emailButton: ['Écrire un e-mail','Send an email'], linkedinButton: ['Voir mon LinkedIn','View my LinkedIn']
+   homeP3: [
+  'Je cherche actuellement des stages en électronique, automatique ou systèmes embarqués, notamment dans le domaine de l’aéronautique ou du spatial mais aussi des mobilités à l’étranger.',
+  'I am currently looking for internships in electronics, control systems or embedded systems, particularly in the aerospace sector, as well as opportunities to study abroad.'
+],
+cvFrenchButton: ['Télécharger mon CV (français)', 'Download my CV (French)'],
+cvEnglishButton: ['Télécharger mon CV (anglais)', 'Download my CV (English)'],
+projectLabel: ['Projet', 'Project'],
+contextLabel: ['Contexte', 'Context'],
+roleLabel: ['Mon rôle', 'My role'],
+toolsLabel: ['Outils', 'Tools'],
+resultLabel: ['Résultat', 'Outcome']
 };
   var textPairs = [
     ['Voir les projets','View projects'],['Me contacter','Contact me'],['En cours','Ongoing'],['Électronique, Génie Électrique et Automatique.','Electronics, Electrical Engineering and Automation.'],
     ['Cycle ingénieur, filière 3EA','Engineering degree, 3EA programme'],['Sept. 2026 à aujourd’hui','Sept. 2026 – present'],['Sept. 2026 à aujourd\'hui','Sept. 2026 – present'],['Sept. 2024 à juil. 2026','Sept. 2024 – Jul. 2026'],['Sept. 2023 à juil. 2024','Sept. 2023 – Jul. 2024'],['Sept. 2022 à juil. 2023','Sept. 2022 – Jul. 2023'],['Juil. 2022','Jul. 2022'],
     ['Classe préparatoire PSI, deuxième année puis redoublement','PSI preparatory classes, second year and repeat year'],['Classe préparatoire, première année (redoublement)','Preparatory classes, first year (repeat year)'],['Classe préparatoire aux grandes écoles, première année','Preparatory classes for engineering schools, first year'],['Baccalauréat, mention bien','French baccalaureate, with honours'],['Internat : esprit d’équipe et vie en collectivité','Boarding school: teamwork and communal living'],['Spécialités mathématiques et physique-chimie','Specialisms in mathematics and physics-chemistry'],['Programmation et calcul','Programming and computation'],['Français, anglais (niveau B2)','French, English (B2)'],['Adaptation, autonomie, rigueur','Adaptability, independence, attention to detail'],['Mobilité','Mobility'],
     ['Agent de production et mise en rayon','Production and shelf-stocking assistant'],['Laiterie et grande distribution, par intérim','Dairy production and retail, temporary work'],['Agent de production dans une laiterie','Production worker in a dairy'],['Mise en rayon en grande distribution','Shelf-stocking in retail'],['Adaptation rapide à chaque poste, rythme de travail soutenu','Quickly adapting to each role and a fast-paced environment'],['Réserviste dans l’Armée de l’air','Air Force reservist'],['Rigueur, gestion du stress, travail en équipe en condition opérationnelle','Discipline, working under pressure and teamwork in an operational setting'],['Formation de réserviste opérationnel','Operational reservist training'],['Développement de la rigueur militaire','Developing military discipline'],['Guide batelier','Boat tour guide'],['Pédagogie, contact avec la clientèle, endurance','Communication, customer service and stamina'],['En dehors des études','Beyond my studies'],['Quand je ne suis pas en cours : aéronautique, course à pied, pêche, bricolage… et un peu de sciences par curiosité.','Outside classes: aviation, running, fishing, DIY and science out of curiosity.'],
-    ['Contact','Contact'],['E-mail','Email'],['Copier','Copy'],['Adresse copiée.','Email address copied.'],['Adresse sélectionnée : copiez-la avec votre clavier.','Email selected: copy it using your keyboard.'],['Voir mon LinkedIn','View my LinkedIn'],['Écrire un e-mail','Send an email']
+    ['Contact','Contact'],['E-mail','Email'],['Copier','Copy'],['Adresse copiée.','Email address copied.'],['Adresse sélectionnée : copiez-la avec votre clavier.','Email selected: copy it using your keyboard.'],['Voir mon LinkedIn','View my LinkedIn'],['Écrire un e-mail','Send an email'],
+    ['8 mai & 11 novembre', 'May 8 & November 11'],['mars 2025', 'March 2025'],['Été 2023', 'Summer 2023'],['Été 2024', 'Summer 2024'],['Été 2022', 'Summer 2022'],['Été 2021', 'Summer 2021']
   ];
   function translateTextNodes(lang) {
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -849,7 +882,8 @@ civicCroixText: ['Préparation et distribution de denrés alimentaires à des sa
     document.getElementById('language-toggle').setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
     var map = [
       ['.hero .eyebrow','homeEyebrow'],['.hero h1','homeTitle'],['.hero .copy p:nth-child(1)','homeP1'],['.hero .copy p:nth-child(2)','homeP2'],
-      ['.hero .actions a:nth-child(1)','projectsButton'],['.hero .actions a:nth-child(2)','contactButton'],['#p-projets-formation > .eyebrow','projectsEyebrow'],['#p-projets-formation > h2','projectsTitle'],['#p-projets-formation > .lede','projectsIntro'],['#p-contact > .lede','contactIntro'],['#copy-mail','copyButton'],['#p-contact .actions a:nth-child(1)','emailButton'],['#p-contact .actions a:nth-child(2)','linkedinButton']
+      ['.hero .actions a:nth-child(1)','projectsButton'],['.hero .actions a:nth-child(2)','contactButton'],['#p-projets-formation > .eyebrow','projectsEyebrow'],['#p-projets-formation > h2','projectsTitle'],['#p-projets-formation > .lede','projectsIntro'],['#p-contact > .lede','contactIntro'],['#copy-mail','copyButton'],['#p-contact .actions a:nth-child(1)','emailButton'],['#p-contact .actions a:nth-child(2)','linkedinButton'],
+      ['.hero .copy p:nth-child(3)', 'homeP3'],['#p-contact .actions:nth-of-type(2) a:nth-child(1)', 'cvFrenchButton'],['#p-contact .actions:nth-of-type(2) a:nth-child(2)', 'cvEnglishButton']
     ];
     map.forEach(function (item) { var el=document.querySelector(item[0]), pair=translations[item[1]]; if(el && pair) el.textContent=pair[lang==='en'?1:0]; });
     translateTextNodes(lang);
