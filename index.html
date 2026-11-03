@@ -500,10 +500,12 @@ h3 { font-size: 1.18rem; }
 
   <main>
     <!-- ACCUEIL -->
-    <section class="panel reveal" id="p-accueil" data-panel="accueil">
-      <div class="hero">
-        <p class="eyebrow">Étudiant en 3EA · Toulouse</p>
-        <h1>Bonjour, moi c'est Victor.</h1>
+<section class="panel reveal" id="p-accueil" data-panel="accueil">
+  <div class="hero hero-layout">
+
+    <div class="hero-main">
+      <p class="eyebrow">Étudiant en 3EA · Toulouse</p>
+      <h1>Bonjour, moi c'est Victor.</h1>
         <div class="copy lede">
           <p>Je suis étudiant en cycle ingénieur à l'ENSEEIHT, en Électronique, Génie Électrique et Automatique. J'aime comprendre comment les systèmes fonctionnent, les mettre à l'épreuve et trouver des solutions simples aux problèmes techniques.</p>
           <p>Mon parcours est un peu varié : prépa, lycée militaire, réserve dans l'Armée de l'air et plusieurs jobs d'été. Ces expériences m'ont surtout appris à être sérieux dans mon travail, à m'adapter et à garder la tête froide quand le rythme s'accélère.</p>
@@ -517,12 +519,27 @@ h3 { font-size: 1.18rem; }
           <div><dt>Outils</dt><dd>Python · MATLAB · C</dd></div>
         </dl>
 
-        <div class="actions" style="margin-top: 0;">
-          <a class="btn primary" href="#projets-formation">Voir les projets</a>
-          <a class="btn" href="#contact">Me contacter</a>
-        </div>
+     <div class="actions" style="margin-top: 0;">
+        <a class="btn primary" href="#projets-formation">Voir les projets</a>
+        <a class="btn" href="#contact">Me contacter</a>
       </div>
-    </section>
+    </div>
+
+    <aside class="hero-video">
+      <p class="eyebrow" data-i18n="videoEyebrow">Présentation</p>
+      <div class="video-frame">
+        <iframe
+          src="https://youtu.be/buLoLzigKTk"
+          title="Vidéo de présentation de Victor Boureau"
+          allow="accelerometer; encrypted-media; picture-in-picture"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      <p class="note muted" data-i18n="videoCaption">Ma vidéo de présentation en anglais.</p>
+    </aside>
+
+  </div>
+</section>
 
     <!-- PROJETS -->
     <section class="panel reveal" id="p-projets-formation" data-panel="projets-formation" hidden>
